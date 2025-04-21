@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="icon" type="image/png" href="logo.png">
+    <title>Student Dashboard</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 min-h-screen flex flex-col">
+
+    <!-- Navigation Bar -->
+    <nav class="bg-blue-600 text-white p-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            <a href="student_dashboard.html" class="text-xl font-semibold">Welcome!</a>
+            <div class="space-x-4">
+                <a href="student_dashboard.html" class="hover:text-gray-200">Dashboard</a>
+                <a href="request_status.html" class="hover:text-gray-200">Request Status</a>
+                <a href="student_card.html" class="hover:text-gray-200">Student Card</a>
+            </div>
+            <!-- Logout Button at the top right -->
+            <a href="student_logout.html" class="bg-red-600 text-white py-2 px-4 rounded-lg text-sm hover:bg-red-700 transition duration-200">
+                Logout
+            </a>
+        </div>
+    </nav>
+
+    <div class="w-full max-w-7xl bg-white rounded-lg shadow-lg overflow-hidden flex flex-row space-x-8 mt-4">
+        <!-- Dashboard Content -->
+        <div class="w-2/3 p-6 space-y-6">
+            <form action="update_details.php" method="POST" enctype="multipart/form-data" class="bg-gray-50 p-4 rounded-lg shadow-md space-y-4">
+                <h2 class="text-xl font-semibold text-gray-800">Update Your Details</h2>
+
+                <!-- Full Name Update -->
+                <div>
+                    <label for="name" class="block text-sm font-medium text-gray-700">First Name</label>
+                    <input type="text" id="name" name="name" value="" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400" required>
+                </div>
+
+                <!-- Surname Update -->
+                <div>
+                    <label for="surname" class="block text-sm font-medium text-gray-700">Surname</label>
+                    <input type="text" id="surname" name="surname" value="" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400" required>
+                </div>
+
+                <!-- Title Selection -->
+                <div>
+                    <label for="title" class="block text-sm font-medium text-gray-700">Title</label>
+                    <select name="title" id="title" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400" required>
+                        <option value="Mr">Mr</option>
+                        <option value="Ms">Ms</option>
+                    </select>
+                </div>
+
+                <!-- Qualification Code -->
+                <div>
+                    <label for="qualification_code" class="block text-sm font-medium text-gray-700">Qualification Code</label>
+                    <input type="text" id="qualification_code" name="qualification_code" value="" placeholder="e.g BSC" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400" required>
+                </div>
+
+                <!-- Phone Number -->
+                <div>
+                    <label for="phone_number" class="block text-sm font-medium text-gray-700">Phone Number</label>
+                    <input type="text" id="phone_number" name="phone_number" value="" placeholder="e.g +2734567890" class="w-full p-3 border rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400" required>
+                </div>
+
+                <!-- Preferred Photo Upload -->
+                <div>
+                    <label for="photo" class="block text-sm font-medium text-gray-700">Preferred Photo</label>
+                    <input type="file" id="photo" name="photo" accept="image/*" class="w-full p-2 border rounded-lg bg-white focus:outline-none focus:ring-2 focus:ring-blue-400" required>
+                </div>
+
+                <!-- Submit Button -->
+                <button type="submit" class="w-full bg-blue-600 text-white py-2 rounded-lg hover:bg-blue-700 transition duration-200">
+                    Update Details
+                </button>
+            </form>
+        </div>
+
+        <!-- Calendar Section -->
+        <div class="flex flex-col items-center bg-white bg-opacity-90 backdrop-blur-sm border border-blue-100 rounded-xl shadow-lg p-5 max-w-sm mx-auto h-fit">
+            <h2 class="text-xl font-semibold text-center text-gray-800 mb-4">Calendar</h2>
+            <div id="calendar" class="bg-white rounded-lg shadow-lg p-5 mb-4"></div>
+        </div>
+    </div>
+
+    <script>
+        // Initialize Calendar with JavaScript
+        const currentDate = new Date();
+        const currentMonth = currentDate.getMonth();
+        const currentYear = currentDate.getFullYear();
+        const todayDate = currentDate.getDate();
+
+        const months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+
+        function createCalendar(month, year) {
+            const firstDay = new Date(year, month).getDay();
+            const daysInMonth = new Date(year, month + 1, 0).getDate();
+
+            let calendarHtml = `<div class="text-center text-lg font-bold">${months[month]} ${year}</div>`;
+            calendarHtml += `<div class="grid grid-cols-7 gap-1 mt-4">`;
+
+            const dayNames = ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"];
+            dayNames.forEach(day => {
+                calendarHtml += `<div class="text-center font-semibold">${day}</div>`;
+            });
+
+            for (let i = 0; i < firstDay; i++) {
+                calendarHtml += `<div class="text-center"></div>`;
+            }
+
+            for (let day = 1; day <= daysInMonth; day++) {
+                const isToday = day === todayDate && month === currentMonth && year === currentYear;
+                const todayClass = isToday ? 'bg-blue-500 text-white' : '';
+                calendarHtml += `<div class="text-center py-2 hover:bg-blue-200 rounded-lg ${todayClass}">${day}</div>`;
+                if ((firstDay + day) % 7 === 0) {
+                    calendarHtml += `</div><div class="grid grid-cols-7 gap-1 mt-4">`;
+                }
+            }
+
+            calendarHtml += `</div>`;
+            document.getElementById('calendar').innerHTML = calendarHtml;
+        }
+
+        createCalendar(currentMonth, currentYear);
+    </script>
+</body>
+</html>

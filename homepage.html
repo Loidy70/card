@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <link rel="icon" type="image/png" href="logo.png">
+  <title>University of Mpumalanga - Online Student Card Creation</title>
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.1.2/dist/tailwind.min.css" rel="stylesheet">
+  <style>
+    .hero-bg {
+      background: url('picture.jpg') no-repeat center center;
+      background-size: cover;
+      position: relative;
+    }
+
+    .overlay {
+      background-color: rgba(0, 0, 0, 0.5); 
+      width: 100%;
+      height: 100%;
+      position: absolute;
+      top: 0;
+      left: 0;
+      z-index: 0;
+    }
+
+    .content {
+      position: relative;
+      z-index: 10;
+    }
+
+    .hero-section {
+      background-color: transparent;
+      color: white;
+    }
+
+    .icon {
+      font-size: 2.5rem;
+      color: #1d4ed8;
+    }
+
+    .section-title {
+      font-size: 1.5rem;
+      color: #1d4ed8;
+      margin-bottom: 2rem;
+    }
+
+    .section-subtitle {
+      font-size: 1.25rem;
+      color: #e5e7eb; /* lighter text for dark background */
+    }
+
+  </style>
+</head>
+<body>
+
+  
+  <nav class="bg-blue-900 text-white py-4 px-6 fixed top-0 w-full z-50 shadow-md">
+    <div class="flex justify-between items-center max-w-6xl mx-auto">
+    
+      <div class="flex items-center space-x-4">
+        <img src="10yrs.jpg" alt="UMP Logo" class="w-10 h-10">
+        <h1 class="text-xl font-bold">University of Mpumalanga</h1>
+      </div>
+  
+    
+      <ul class="flex space-x-6 items-center">
+        <li><a href="#" class="hover:underline">Home</a></li>
+        <li><a href="#about" class="hover:underline">About</a></li>
+        <li><a href="#how-it-works" class="hover:underline">How It Works</a></li>
+        <li><a href="#faq" class="hover:underline">FAQs</a></li>
+        <li><a href="#contact-us" class="hover:underline">Contact Us</a></li>
+  
+        
+        <li>
+          <a href="student_register.php">
+            <button class="bg-white text-blue-900 px-4 py-2 rounded-md font-semibold hover:bg-gray-200 transition-all duration-500">
+                Get Started
+            </button>
+          </a>
+        </li>
+        <li>
+          <a href="student_login.php">
+            <button class="bg-blue-600 text-white px-4 py-2 rounded-md font-semibold hover:bg-blue-700 transition-all ease-in-out duration-3000">
+              Sign In
+            </button>
+          </a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+  
+
+  
+  <div class="hero-bg pt-20" style="min-height: 1600px;">
+    <div class="overlay"></div>
+    <div class="content">
+
+      
+      <section class="hero-section py-20 text-center">
+        <h1 class="text-4xl font-bold mb-4">Welcome! Create Your Official Student Card Online</h1>
+        <p class="text-lg max-w-2xl mx-auto">
+       
+        </p>
+      </section>
+
+      
+      <section id="about" class="py-12 px-4 max-w-5xl mx-auto text-white">
+        <div class="text-center mb-10">
+          <i class="fas fa-university text-blue-300 text-4xl mb-4"></i>
+          <h2 class="text-2xl font-semibold">Your Digital Student Card Awaits!</h2>
+          <p class="mt-4">
+            Welcome to the University of Mpumalanga’s Online Student Card Creation System! Get your virtual student card quickly and securely. Enjoy seamless access to campus resources and services with our easy-to-use platform. Start creating your digital ID today and simplify your university experience.
+          </p>
+        </div>
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow text-black">
+            <i class="fas fa-bullseye icon mb-4"></i>
+            <h3 class="font-bold text-lg mb-4">Our Mission</h3>
+            <p>
+              At the University of Mpumalanga, we strive to provide high-quality education and innovative technology solutions that enhance the learning experience.
+            </p>
+          </div>
+          <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow text-black">
+            <i class="fas fa-handshake icon mb-4"></i>
+            <h3 class="font-bold text-lg mb-4">Our Values</h3>
+            <p>
+              We uphold values of Integrity, Innovation, Inclusivity, and Excellence.
+            </p>
+          </div>
+          <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow text-black">
+            <i class="fas fa-users icon mb-4"></i>
+            <h3 class="font-bold text-lg mb-4">Meet Our Team</h3>
+            <p>
+                Our leadership includes professionals like Mr. Andile Skhosana, along with his members Ofentse, Loidy, Letroy, Philasande, Talent, Phumla, and Ncwobileh.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      
+      <section id="how-it-works" class="py-12 px-4 max-w-5xl mx-auto text-center text-white">
+        <h2 class="text-2xl font-bold mb-8">How It Works</h2>
+        <div class="grid md:grid-cols-3 gap-6">
+          <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow text-black">
+            <i class="fas fa-pen text-blue-600 text-3xl mb-4"></i>
+            <h3 class="font-bold">Register</h3>
+            <p>Create an account and provide your student details.</p>
+          </div>
+          <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow text-black">
+            <i class="fas fa-id-card text-blue-600 text-3xl mb-4"></i>
+            <h3 class="font-bold">Create Your Card</h3>
+            <p>Upload your photo and confirm your information.</p>
+          </div>
+          <div class="bg-white bg-opacity-90 p-6 rounded-xl shadow text-black">
+            <i class="fas fa-check-circle text-blue-600 text-3xl mb-4"></i>
+            <h3 class="font-bold">Get Approved</h3>
+            <p>Your application will be verified and approved online.</p>
+          </div>
+        </div>
+      </section>
+
+    </div>
+  </div>
+
+<section class="bg-blue-100 py-16 px-4" id="benefits">
+    <div class="max-w-5xl mx-auto text-center">
+      <h2 class="text-2xl font-bold mb-6">Enjoy the Benefits of Your University of Mpumalanga Online Student Card</h2>
+      <p class="mb-10 text-gray-800">
+        Our online student card system offers numerous advantages, making campus life easier and more secure.
+      </p>
+      <div class="grid md:grid-cols-2 gap-8 text-left">
+        
+    
+        <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition-shadow">
+          <img src="mobile.jpg" alt="Mobile Accessibility" class="w-full h-40 object-cover rounded-md mb-4">
+          <h4 class="font-bold mb-2">Mobile Accessibility</h4>
+          <p>Access your card anytime, anywhere, directly from your smartphone or computer.</p>
+        </div>
+  
+        
+        <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition-shadow">
+          <img src="security.jpg" alt="Enhanced Security" class="w-full h-40 object-cover rounded-md mb-4">
+          <h4 class="font-bold mb-2">Enhanced Security</h4>
+          <p>Your data is protected with advanced encryption, ensuring your information remains safe.</p>
+        </div>
+  
+        
+        <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition-shadow">
+          <img src="user.jpg" alt="User-Friendly Interface" class="w-full h-40 object-cover rounded-md mb-4">
+          <h4 class="font-bold mb-2">User-Friendly Interface</h4>
+          <p>Creating your student card is simple and straightforward with our intuitive platform.</p>
+        </div>
+  
+        
+        <div class="bg-white p-6 rounded-xl shadow hover:shadow-lg transition-shadow">
+          <img src="instant.jpg" alt="Instant Card Generation" class="w-full h-40 object-cover rounded-md mb-4">
+          <h4 class="font-bold mb-2">Instant Card Generation</h4>
+          <p>Get your digital student card instantly after completing the online process.</p>
+        </div>
+  
+      </div>
+    </div>
+  </section>
+  
+  
+  <section id="faq" class="py-12 px-4 max-w-5xl mx-auto">
+    <h2 class="text-2xl font-bold text-center mb-8">FAQs</h2>
+    <div class="space-y-6">
+      <div>
+        <h4 class="font-semibold">How do I create my student card?</h4>
+        <p>Simply follow the step-by-step instructions on the Student Card Creation page to generate your card.</p>
+      </div>
+      <div>
+        <h4 class="font-semibold">What documents do I need?</h4>
+        <p>You will need your student ID number and a valid form of identification to start the process.</p>
+      </div>
+      <div>
+        <h4 class="font-semibold">Can I update my card information?</h4>
+        <p>Yes, you can update your information anytime through the online system.</p>
+      </div>
+      <div>
+        <h4 class="font-semibold">Need More Help?</h4>
+        <p>Contact us for further assistance with your student card.</p>
+      </div>
+    </div>
+  </section>
+
+
+<section id="contact-us" class="bg-blue-900 text-white py-12 px-4">
+    <div class="max-w-5xl mx-auto">
+        <h2 class="text-2xl font-bold mb-10 text-center">Contact Us</h2>
+        <div class="flex flex-col md:flex-row justify-between gap-10 text-center md:text-left">
+            
+            
+            <div class="flex items-start gap-4">
+                <i class="fas fa-envelope text-2xl mt-1"></i>
+                <div>
+                    <h3 class="font-bold mb-1">Email Us</h3>
+                    <p>For questions or assistance, please email us at <span class="font-bold">info@ump.ac.za</span>.</p>
+                </div>
+            </div>
+
+    
+            <div class="flex items-start gap-4">
+                <i class="fas fa-phone-alt text-2xl mt-1"></i>
+                <div>
+                    <h3 class="font-bold mb-1">Call Us</h3>
+                    <p>You can reach our support team at <span class="font-bold">+27 13 754 1000</span> for immediate assistance.</p>
+                </div>
+            </div>
+
+        
+            <div class="flex items-start gap-4">
+                <i class="fas fa-map-marker-alt text-2xl mt-1"></i>
+                <div>
+                    <h3 class="font-bold mb-1">Visit Us</h3>
+                    <p>Our campus is located at <span class="font-bold">University of Mpumalanga</span>, 1 University Road, Mbombela, 1200, South Africa.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+  
+  <footer class="bg-gray-100 text-gray-600 py-6 px-4 text-center">
+    <p class="mb-2">&copy; 2025 University of Mpumalanga. All rights reserved.</p>
+    <div class="flex justify-center gap-6 text-blue-600">
+      <a href="#">Facebook</a>
+      <a href="#">LinkedIn</a>
+      <a href="#">Twitter</a>
+    </div>
+    <div class="mt-4">
+      <a href="#" class="mx-2 underline">Terms and Conditions</a>
+      <a href="#" class="mx-2 underline">Privacy Policy</a>
+    </div>
+  </footer>
+
+</body>
+</html>

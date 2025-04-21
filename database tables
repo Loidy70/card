@@ -1,0 +1,43 @@
+CREATE TABLE student_details (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    student_id INT NOT NULL,
+    title ENUM('Mr', 'Ms') NOT NULL,
+    preferred_phone VARCHAR(20),
+    FOREIGN KEY (student_id) REFERENCES students(id) ON DELETE CASCADE
+);
+
+
+CREATE TABLE student_card_requests (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    student_id INT NOT NULL,
+    request_date DATETIME DEFAULT CURRENT_TIMESTAMP,
+    status ENUM('pending', 'approved', 'rejected') DEFAULT 'pending',
+    FOREIGN KEY (student_id) REFERENCES students(id) ON DELETE CASCADE
+);
+
+CREATE TABLE student_cards (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    student_id INT NOT NULL,
+    card_image_path VARCHAR(255) NOT NULL,
+    generated_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+    FOREIGN KEY (student_id) REFERENCES students(id) ON DELETE CASCADE
+);
+
+CREATE TABLE students (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    first_name VARCHAR(100) NOT NULL,
+    last_name VARCHAR(100) NOT NULL,
+    student_number VARCHAR(50) NOT NULL UNIQUE,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL
+);
+
+CREATE TABLE admins (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) NOT NULL UNIQUE,
+    password VARCHAR(255) NOT NULL
+);
+
+CREATE DATABASE student_card_system;
+USE student_card_system;

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Card Requests</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        function updateStatus(id, newStatus) {
+            const statusCell = document.getElementById(`status-${id}`);
+            statusCell.textContent = newStatus;
+            statusCell.className = newStatus === 'approved' ? 'bg-green-200' : 'bg-red-200';
+
+            // In a real application, you would make an API call here to update the status in the database
+            alert(`Request #${id} has been updated to ${newStatus}`);
+        }
+    </script>
+</head>
+<body class="bg-gray-50 font-sans leading-normal tracking-normal p-8">
+
+    <nav class="bg-blue-600 text-white p-4">
+        <div class="max-w-7xl mx-auto flex justify-between items-center">
+            
+            <div class="space-x-4">
+                <a href="student_dashboard.php" class="hover:text-gray-200">Dashboard</a>
+                <a href="status.html" class="hover:text-gray-200">Request Status</a>
+                <a href="student_card.php" class="hover:text-gray-200">Student Card</a>
+            </div>
+            <!-- Logout Button at the top right -->
+
+        </div>
+    </nav>
+
+    <h1 class="text-4xl font-bold text-center text-gray-800 mb-8">Student Card Requests</h1>
+
+    <div class="overflow-x-auto bg-white shadow-lg rounded-lg">
+        <table class="min-w-full table-auto">
+            <thead>
+                <tr class="bg-gray-700 text-white">
+                    <th class="px-6 py-4 text-left">ID</th>
+                    <th class="px-6 py-4 text-left">Student ID</th>
+                    <th class="px-6 py-4 text-left">Request Date</th>
+                    <th class="px-6 py-4 text-left">Status</th>
+                    <th class="px-6 py-4 text-left">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <!-- Example Request Row 1 -->
+                <tr class="border-b hover:bg-gray-100">
+                    <td class="px-6 py-4 text-center">1</td>
+                    <td class="px-6 py-4 text-center">101</td>
+                    <td class="px-6 py-4 text-center">2025-04-18 10:30:00</td>
+                    <td id="status-1" class="px-6 py-4 text-center bg-yellow-200">pending</td>
+                    <td class="px-6 py-4 text-center">
+                        <button class="bg-green-500 text-white px-5 py-2 rounded-lg shadow-md hover:bg-green-600 transition duration-200 mr-2" onclick="updateStatus(1, 'approved')">Approve</button>
+                        <button class="bg-red-500 text-white px-5 py-2 rounded-lg shadow-md hover:bg-red-600 transition duration-200" onclick="updateStatus(1, 'rejected')">Reject</button>
+                    </td>
+                </tr>
+                <!-- Example Request Row 2 -->
+                <tr class="border-b hover:bg-gray-100">
+                    <td class="px-6 py-4 text-center">2</td>
+                    <td class="px-6 py-4 text-center">102</td>
+                    <td class="px-6 py-4 text-center">2025-04-18 11:00:00</td>
+                    <td id="status-2" class="px-6 py-4 text-center bg-yellow-200">pending</td>
+                    <td class="px-6 py-4 text-center">
+                        <button class="bg-green-500 text-white px-5 py-2 rounded-lg shadow-md hover:bg-green-600 transition duration-200 mr-2" onclick="updateStatus(2, 'approved')">Approve</button>
+                        <button class="bg-red-500 text-white px-5 py-2 rounded-lg shadow-md hover:bg-red-600 transition duration-200" onclick="updateStatus(2, 'rejected')">Reject</button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>
